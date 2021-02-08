@@ -2,7 +2,8 @@
 - name: Deploy Calculator locally
   hosts: all
   tasks:
-    copy: Copying jar file
-      src: ./target/calculator-scientific-devops-1.0-SNAPSHOT.jar
-      dest: ~/calculator-scientific-devops.jar
-      mode: 0755
+    - name: Copying jar file
+      copy:
+        src: ./target/calculator-scientific-devops-1.0-SNAPSHOT.jar
+        dest: ~/calculator-scientific-devops.jar
+        mode: 0755
