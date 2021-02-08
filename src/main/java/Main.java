@@ -12,6 +12,13 @@ public class Main {
                 System.out.print("Please enter a number on which you want to compute square root: ");
                 double number = scanner.nextDouble();
                 System.out.println("Your result is "+ Math.sqrt(number));
+
+            }
+            else if(choice==3){
+                System.out.print("Please enter a number on which you want to compute Natural log: ");
+                double number = scanner.nextDouble();
+                System.out.println("Your result is "+ Math.log(number));
+
             }
         }catch (Exception e){
             System.out.println("Exiting.....");
