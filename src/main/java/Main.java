@@ -11,7 +11,7 @@ public class Main {
         System.out.print("Enter your choice: ");
         Scanner scanner = new Scanner(System.in);
 
-
+       // while(1)
         try {
             int choice = scanner.nextInt();
 

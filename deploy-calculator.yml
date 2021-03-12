@@ -1,9 +1,8 @@
 ---
-- name: Deploy Calculator locally
+- name: Pull docker image
   hosts: all
   tasks:
-    - name: Copying jar file
-      copy:
-        src: ./target/calculator-scientific-devops-1.0-SNAPSHOT.jar
-        dest: ~/calculator-scientific-devops.jar
-        mode: 0755
+    - name: Pull docker image from docker hub
+      docker_image:
+        name: preeti82/calculator-scientific-devops
+        source: pull
