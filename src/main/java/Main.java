@@ -1,7 +1,11 @@
 import java.util.Scanner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-
+import static java.lang.Math.*;
 public class Main {
+    private static final Logger logger = LogManager.getLogger(Main.class);
+
     public static void main(String[] args) {
 
         System.out.println("Welcome to scientific calculator program");
@@ -11,18 +15,19 @@ public class Main {
         System.out.print("Enter your choice: ");
         Scanner scanner = new Scanner(System.in);
 
-       // while(1)
+
         try {
             int choice = scanner.nextInt();
 
             if (choice == 1) {
                 System.out.print("Please enter a number on which you want to compute square root: ");
                 double number = scanner.nextDouble();
+                //int num=(int) number;
                 System.out.println("Your result is " + new Main().squareRoot(number));
 
             } else if (choice == 2) {
                 System.out.print("Please enter a number on which you want to compute Factorial: ");
-                double number = scanner.nextDouble();
+                int number = scanner.nextInt();
                 System.out.println("Factorial of " + number + " is: " + new Main().factorial(number));
             } else if (choice == 3) {
                 System.out.print("Please enter a number on which you want to compute Natural log: ");
@@ -43,23 +48,48 @@ public class Main {
 
     }
 
-    public double squareRoot(double number) {
-        return Math.sqrt(number);
-    }
-
-    public long factorial(double number) {
-        long fact = 1;
-        for (int i = 1; i <= number; i++) {
-            fact = fact * i;
+    public static int factorial(int num1) {
+        logger.info("To find Factorial of number " + num1);
+        int result = 1;
+        if (num1 == 0 || num1 == 1)
+            return 1;
+        for (int i = num1; i >= 1; i--) {
+            result = result * i;
         }
-        return fact;
+        logger.info("Result of factorial of " + num1 + " is " + result);
+        return result;
     }
 
-    public double logFunction(double number) {
-        return Math.log(number);
+
+    public static double squareRoot(double num) {
+        //temporary variable
+        logger.info("Find the Square Root of number " + num);
+        if (num == 0)
+            return 0;
+        if (num < 0)
+            return -1;
+        double t;
+        double sqrtroot = num / 2;
+        do {
+            t = sqrtroot;
+            sqrtroot = (t + (num / t)) / 2;
+        }
+        while ((t - sqrtroot) != 0);
+        logger.info("Result of the square root of " + num + " is " + sqrtroot);
+        return sqrtroot;
     }
 
-    public double powerFunction(double number1, double number2) {
-        return Math.pow(number1, number2);
+
+    public static double logFunction(double num) {
+        logger.info("find the log of " + num);
+        logger.info("find the log of " + num + " is " + log(num));
+        return log(num);
+    }
+
+    public static double powerFunction(double x, double y) {
+        logger.info("power of the number " + x + "," + y);
+        logger.info("power of the number " + x + "," + y + " is " + pow(x, y));
+        return pow(x, y);
+
     }
 }
