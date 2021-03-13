@@ -49,21 +49,21 @@ public class Main {
     }
 
     public static int factorial(int num1) {
-        logger.info("To find Factorial of number " + num1);
+        logger.info("[Factorial], number " + num1);
         int result = 1;
         if (num1 == 0 || num1 == 1)
             return 1;
         for (int i = num1; i >= 1; i--) {
             result = result * i;
         }
-        logger.info("Result of factorial of " + num1 + " is " + result);
+        logger.info("[Result-Factorial], number " + num1 + " is " + result);
         return result;
     }
 
 
     public static double squareRoot(double num) {
         //temporary variable
-        logger.info("Find the Square Root of number " + num);
+        logger.info("[Square-Root], number " + num);
         if (num == 0)
             return 0;
         if (num < 0)
@@ -75,20 +75,20 @@ public class Main {
             sqrtroot = (t + (num / t)) / 2;
         }
         while ((t - sqrtroot) != 0);
-        logger.info("Result of the square root of " + num + " is " + sqrtroot);
+        logger.info("[Result-Square-Root], number " + num + " is " + sqrtroot);
         return sqrtroot;
     }
 
 
     public static double logFunction(double num) {
-        logger.info("find the log of " + num);
-        logger.info("find the log of " + num + " is " + log(num));
+        logger.info("[Natural-Log], number " + num);
+        logger.info("[Result-Natural-Log], number " + num + " is " + log(num));
         return log(num);
     }
 
     public static double powerFunction(double x, double y) {
-        logger.info("power of the number " + x + "," + y);
-        logger.info("power of the number " + x + "," + y + " is " + pow(x, y));
+        logger.info("[Power], number " + x + "," + y);
+        logger.info("[Result-Power], number " + x + "," + y + " is " + pow(x, y));
         return pow(x, y);
 
     }
